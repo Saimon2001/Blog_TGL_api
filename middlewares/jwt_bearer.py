@@ -1,7 +1,7 @@
 from fastapi import Body, Depends, HTTPException, Path, Query, status, Request
 from pydantic import BaseModel, Field
 from typing import List
-from jwt_manager import create_token, validate_token
+from middlewares.jwt_manager import create_token, validate_token
 from fastapi.security import HTTPBearer
 
 class JWTBearer(HTTPBearer):
