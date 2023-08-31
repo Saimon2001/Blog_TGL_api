@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from config.database import Session, engine, Base
-from models.user import User as UserModel
+from models.user_model import User as UserModel
 from typing import List
 from fastapi import APIRouter
 from middlewares.jwt_bearer import JWTBearer

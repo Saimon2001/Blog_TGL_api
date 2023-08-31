@@ -1,6 +1,6 @@
 from schemas.publi_schema import Publication
 from fastapi import APIRouter
-from models.user import Publication as PublicationModel
+from models.user_model import Publication as PublicationModel
 from fastapi import FastAPI, Body, Depends, HTTPException, Path, Query, status, Request
 from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse

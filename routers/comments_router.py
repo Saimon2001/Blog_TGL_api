@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from schemas.comments_schema import Comments
-from models.user import Comments as CommentsModel
+from models.user_model import Comments as CommentsModel
 from fastapi import FastAPI, Body, Depends, HTTPException, Path, Query, status, Request
 from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
