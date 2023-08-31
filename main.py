@@ -8,15 +8,18 @@ from typing import List
 from middlewares.jwt_manager import create_token
 from middlewares.jwt_bearer import JWTBearer
 
+from routers.healthCheck_router import health
 from routers.user_router import user_router
 from routers.publi_router import publi_router
 from routers.comments_router import comments_router
 from routers.plot_router import plot_router
 from routers.country_router import country_router
 
+
 app = FastAPI()
 app.title = "Blog TGL"
 
+app.include_router(health)
 app.include_router(user_router)
 app.include_router(publi_router)
 app.include_router(comments_router)
