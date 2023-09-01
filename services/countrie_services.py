@@ -36,6 +36,7 @@ def extract_data( country_list ):
         
         new_list.append([id, name_common, name_official,
                          independent, region, subregion, flag_svg,
-                        flag_icon, population, languages, gini])
+                        flag_icon, population, languages,
+                        gini])
     
     return new_list

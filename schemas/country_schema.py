@@ -29,7 +29,7 @@ class Country(BaseModel):
                 'flag_svg': "https://flagcdn.com/co.svg",
                 'flag_icon': "🇨🇴",
                 'population': 50882884,
-                'gini': 51.3,
+                'gini': 51.3
                 
             }
         }

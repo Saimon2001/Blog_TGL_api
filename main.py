@@ -31,6 +31,8 @@ Base.metadata.create_all(bind=engine)
 class auth(BaseModel):
     email: str
     password: str
+    
+
 
 @app.post('/admin', tags=['auth'], response_model=dict, status_code=200)
 def login(user: auth):
