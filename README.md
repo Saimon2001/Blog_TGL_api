@@ -104,3 +104,4 @@ For support, email fake@fake.com or join our Slack channel.
 If you have any feedback, please reach out to us at fake@fake.com
 
 
+![Logo](./images/topGunLab.jpg)
