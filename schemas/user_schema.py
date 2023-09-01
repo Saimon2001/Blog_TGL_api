@@ -6,8 +6,9 @@ class User(BaseModel):
     name: str = Field(min_length=3, max_length=15)
     email: str = Field(min_length=5)
     password: str = Field(min_length=3, max_length=15)
-    country: str = Field(min_length=3, max_length=15)
+    country: str = Field(min_length=3, max_length=200)
     regiter_time: float
+    role: str = (Field(min_length=3, max_length=15))
 
     class Config:
         schema_extra = {
@@ -17,6 +18,7 @@ class User(BaseModel):
                 'email': 'name@gmail.com',
                 'password': 'pass',
                 'country': 'Colombia',
-                'regiter_time': 2
+                'regiter_time': 2,
+                'role': 'admin'
             }
         }

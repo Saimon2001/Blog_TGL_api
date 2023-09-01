@@ -5,7 +5,12 @@ from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from config.database import Session, engine, Base
 
-from models.country_model import Country
+
+from models.models import Country as CountryModel
+from models.models import User as UserModel
+from models.models import Publication as PublicationModel
+from models.models import Comment as CommentModel
+
 from typing import List
 
 from services.countrie_services import fetch_data_from_external_api,extract_data
@@ -16,7 +21,7 @@ country_router = APIRouter()
 
 
 
-@country_router.post("/countries")
+@country_router.post("/countries",tags=["Country"] )
 async def populate_countries_table( new_countrie_list: list ):
     
     original_countrie_list = fetch_data_from_external_api()

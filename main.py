@@ -5,19 +5,18 @@ from fastapi.encoders import jsonable_encoder
 from config.database import Session, engine, Base
 from typing import List
 
-from middlewares.jwt_manager import create_token
-from middlewares.jwt_bearer import JWTBearer
 
 from routers.healthCheck_router import health
 from routers.user_router import user_router
-from routers.publi_router import publi_router
-from routers.comments_router import comments_router
+from routers.publication_router import publi_router
+from routers.comment_router import comments_router
 from routers.plot_router import plot_router
 from routers.country_router import country_router
+from routers.auth_router import auth_router
 
 
 app = FastAPI()
-app.title = "Blog TGL"
+app.title = "Top Gun Lab: The real blog to boost our career"
 
 app.include_router(health)
 app.include_router(user_router)
@@ -25,17 +24,8 @@ app.include_router(publi_router)
 app.include_router(comments_router)
 app.include_router(plot_router)
 app.include_router(country_router)
+app.include_router(auth_router)
 
 Base.metadata.create_all(bind=engine)
 
-class auth(BaseModel):
-    email: str
-    password: str
-    
 
-
-@app.post('/admin', tags=['auth'], response_model=dict, status_code=200)
-def login(user: auth):
-    if user.email == 'admin@TGL_blog.com' and user.password == 'admin':
-        token: str = create_token(user.dict())
-        return JSONResponse(status_code=200, content=token)

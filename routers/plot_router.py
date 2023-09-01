@@ -21,7 +21,7 @@ def create_plot():
     plt.close(fig)
     return img_buf
 
-@plot_router.get("/plot", tags=['plot'])
+@plot_router.get("/plot", tags=['Plot'])
 def plot_data(background_tasks: BackgroundTasks):
     """Plot the data from the API endpoint."""
     img_buf = create_plot()
