@@ -84,6 +84,10 @@ Mostrar la documentación que brinda fastAPI
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 
+## Database schema
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 
 ## Lessons Learned
 
