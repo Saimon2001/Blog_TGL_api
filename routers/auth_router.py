@@ -1,4 +1,5 @@
 from schemas.auth_schema import auth
+from fastapi import APIRouter
 
 from middlewares.jwt_manager import create_token
 from middlewares.jwt_bearer import JWTBearer
@@ -10,7 +11,7 @@ from fastapi.encoders import jsonable_encoder
 from config.database import Session, engine, Base
 
 
-auth_router = FastAPI()
+auth_router = APIRouter()
 
 @auth_router.post('/admin', tags=['Authenticator'], response_model=dict, status_code=200)
 def login(user: auth):

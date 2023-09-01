@@ -1,4 +1,3 @@
-from schemas.country_schema import Country
 from fastapi import FastAPI, APIRouter, Body, Depends, HTTPException, Path, Query, status, Request
 from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
@@ -7,9 +6,7 @@ from config.database import Session, engine, Base
 
 
 from models.models import Country as CountryModel
-from models.models import User as UserModel
-from models.models import Publication as PublicationModel
-from models.models import Comment as CommentModel
+from schemas.country_schema import Country
 
 from typing import List
 
@@ -47,13 +44,9 @@ async def populate_countries_table( new_countrie_list: list ):
     return {"message": "Datos de países guardados exitosamente"}
 
 
-
-
-
-
-
-
-
-
-
+@country_router.get("/countries", tags=["Country"], response_model=List[Country], status_code=200)
+async def get_all_countries() -> List[Country]:
+    db = Session()
+    result = db.query(CountryModel).all()
+    return JSONResponse(status_code=200, content=jsonable_encoder(result))
 

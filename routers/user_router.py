@@ -1,10 +1,10 @@
-from schemas.user_schema import User
 from fastapi import FastAPI, Body, Depends, HTTPException, Path, Query, status, Request
 from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from config.database import Session, engine, Base
 
+from schemas.user_schema import User
 from models.models import User as UserModel
 
 from typing import List

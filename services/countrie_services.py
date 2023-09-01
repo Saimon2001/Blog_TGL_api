@@ -34,8 +34,10 @@ def extract_data( country_list ):
         flag_icon = country['flag']
         population = country['population']
         
-        new_list.append([id, name_common, name_official,
-                         independent, region, subregion, flag_svg,
-                        flag_icon, population, languages, gini ])
+        new_list.append([
+            id, name_common, name_official,
+            independent, region, subregion, flag_svg,
+            flag_icon, population, languages, gini
+            ])
     
     return new_list
