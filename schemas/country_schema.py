@@ -7,14 +7,14 @@ class Country(BaseModel):
     id: str = Field(min_length=1, max_length=15)
     name_common: str = Field(min_length=3, max_length=200)
     name_official: str = Field(min_length=3, max_length=200)
-    independent: str = Field(min_length=3, max_length=15)
+    independent: bool
     languages: str = Field(min_length=3, max_length=15)
     region: str = Field(min_length=3, max_length=15)
     subregion: str = Field(min_length=3, max_length=15)
     flag_svg: str = Field(min_length=3, max_length=15)
     flag_icon: str = Field(min_length=3, max_length=15) 
     population: float
-    gini = float
+    gini: float
 
     class Config:
         schema_extra = {
@@ -22,7 +22,7 @@ class Country(BaseModel):
                 'id': 'CO',
                 'name_common': 'Colombia',
                 'name_official': 'Republic of Colombia',
-                'independent': 'pass',
+                'independent': True,
                 'languages': 'Colombia',
                 'region': 'Americas',
                 'subregion': 'South America',

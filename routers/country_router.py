@@ -18,7 +18,7 @@ original_countrie_list = fetch_data_from_external_api()
 
 new_countrie_list = extract_data(original_countrie_list)
 
-print(new_countrie_list)
+
 
 
 
