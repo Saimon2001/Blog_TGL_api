@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-# Blog_TGL_api
-=======
 
+# Blog_TGL_api
 
 ![Logo](./images/proyecto_final.png)
 
