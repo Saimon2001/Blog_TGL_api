@@ -23,9 +23,8 @@ Python, FastAPI...
 
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+**Server:** fastAPI
 
-**Server:** Node, Express
 
 ## Installation
 

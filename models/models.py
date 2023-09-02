@@ -18,7 +18,7 @@ class Country(Base):
     population =  Column( Integer )
     gini = Column( Float )
     
-    users = relationship("users", back_populates= "owner")
+    users = relationship("User", back_populates= "owner")
     
 class User(Base):  
     __tablename__ = "users"
@@ -29,7 +29,7 @@ class User(Base):
     email = Column(String, unique = True)
     password = Column(String)
     country = Column(String, ForeignKey("countries.id"))
-    regiter_time = Column(Float)
+    register_time = Column(Float)
     role = Column(String)
     
     publications = relationship("Publication", back_populates= "owner")
@@ -45,7 +45,7 @@ class Publication(Base):
     content = Column( String ) 
     
     owner = relationship("User", back_populates= "publications")
-    comments = relationship("Comments", back_populates= "owner")
+    comments = relationship("Comment", back_populates= "owner")
 
 class Comment(Base):
     __tablename__ = "comments"

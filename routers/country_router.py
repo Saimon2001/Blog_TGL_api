@@ -44,9 +44,9 @@ async def populate_countries_table( new_countrie_list: list ):
     return {"message": "Datos de países guardados exitosamente"}
 
 
-@country_router.get("/countries", tags=["Country"], response_model=List[Country], status_code=200)
+""" @country_router.get("/countries", tags=["Country"], response_model=List[Country], status_code=200)
 async def get_all_countries() -> List[Country]:
     db = Session()
     result = db.query(CountryModel).all()
     return JSONResponse(status_code=200, content=jsonable_encoder(result))
-
+ """
