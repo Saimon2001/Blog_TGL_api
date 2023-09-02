@@ -2,10 +2,10 @@
 
 ![Logo](./images/proyecto_final.png)
 
-# Project Title
+# TGL Blog API
 
 
-A brief description of what this project does and who it's for
+This project is an API build with the FastAPI web framework, where you can do CRUD for users, publications and comments. There is an authentication build with JWT module of FastAPI, a connection to a sqlite database, through sqlalchemy. We use the Seaborn library to do a countplot of the data our API recieves. 
 
 
 
@@ -19,7 +19,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 
 ## 🛠 Skills
-Javascript, HTML, CSS...
+Python, FastAPI...
 
 ## Tech Stack
 
@@ -42,7 +42,7 @@ Install my-project with npm
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Saimon2001/Blog_TGL_api
 ```
 
 Go to the project directory
@@ -66,7 +66,8 @@ Start the server
 
 ## Authors
 
-- [@octokatherine](https://www.github.com/octokatherine)
+- [@Saimon2001]([https://github.com/Saimon2001])
+- [@Biodani]
 
 ## Features
 
@@ -91,12 +92,12 @@ Mostrar la documentación que brinda fastAPI
 
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+We learned to build, debug and imporve a API with FastAPI web framework, we also increased our knowledge of virtual env and git
 
 
 ## Support
 
-For support, email fake@fake.com or join our Slack channel.
+For support, email simonlr2001@gmail.com or dtejadah@unal.edu.co.
 
 
 ## Feedback
