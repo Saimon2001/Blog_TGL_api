@@ -2,11 +2,11 @@ from fastapi import FastAPI, APIRouter, Body, Depends, HTTPException, Path, Quer
 from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-from config.database import Session, engine, Base
+from config.database import Session, engine, Base, metadata
 
 
-from models.models import Country as CountryModel
-from schemas.country_schema import Country
+from models.models import Country
+from schemas.country_schema import Country as CountrySchema
 
 from typing import List
 
@@ -16,8 +16,6 @@ from middlewares.jwt_bearer import JWTBearer
 
 country_router = APIRouter()
 
-
-
 @country_router.post("/countries",tags=["Country"] )
 async def populate_countries_table( new_countrie_list: list ):
     
@@ -26,7 +24,7 @@ async def populate_countries_table( new_countrie_list: list ):
     
     db = Session()
     for item in new_countrie_list:
-        new_country = Country(
+        new_country = CountrySchema(
             id = item[0],
             name_common = item[1],
             name_official = item[2],
@@ -42,11 +40,3 @@ async def populate_countries_table( new_countrie_list: list ):
         db.add(new_country)
     db.commit()
     return {"message": "Datos de países guardados exitosamente"}
-
-
-""" @country_router.get("/countries", tags=["Country"], response_model=List[Country], status_code=200)
-async def get_all_countries() -> List[Country]:
-    db = Session()
-    result = db.query(CountryModel).all()
-    return JSONResponse(status_code=200, content=jsonable_encoder(result))
- """

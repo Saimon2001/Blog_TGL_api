@@ -17,7 +17,7 @@ user_router = APIRouter()
 def get_users() -> List[User]:
     db = Session()
     result = db.query(UserModel).all()
-    return JSONResponse(status_code=200, content=jsonable_encoder(result))
+    return result
 
 #falta get especifico de fecha publicacion y titulo
 @user_router.post('/sing_up', tags=['User'], response_model=dict, status_code=201)

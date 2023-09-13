@@ -8,17 +8,17 @@ class Country(BaseModel):
     name_common: str = Field(min_length=3, max_length=1000)
     name_official: str = Field(min_length=3, max_length=1000)
     independent: bool
-    languages: str = Field(min_length=3, max_length=1000)
-    region: str = Field(min_length=3, max_length=1000)
-    subregion: str = Field(min_length=3, max_length=1000)
-    flag_svg: str = Field(min_length=3, max_length=1000)
-    flag_icon: str = Field(min_length=3, max_length=1000) 
+    languages: str = Field(min_length=1, max_length=1000)
+    region: str = Field(min_length=1, max_length=1000)
+    subregion: str = Field(min_length=1, max_length=1000)
+    flag_svg: str = Field(min_length=1, max_length=1000)
+    flag_icon: str = Field(min_length=1, max_length=1000) 
     population: int
     gini: float
 
     class Config:
         orm_mode = True
-        
+         
         schema_extra = {
             'example': {
                 'id': 'CO',
@@ -34,4 +34,5 @@ class Country(BaseModel):
                 'gini': 51.3
                 
             }
+            
         }

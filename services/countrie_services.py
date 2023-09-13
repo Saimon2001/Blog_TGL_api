@@ -3,6 +3,7 @@ import requests
 def fetch_data_from_external_api():
     response = requests.get("https://restcountries.com/v3.1/all")
     data = response.json()
+    #print(data)
     return data
 
 def extract_data( country_list ):
@@ -33,11 +34,13 @@ def extract_data( country_list ):
         flag_svg = country['flags']['svg']
         flag_icon = country['flag']
         population = country['population']
+        gini = gini
+        
         
         new_list.append([
             id, name_common, name_official,
             independent, region, subregion, flag_svg,
-            flag_icon, population, languages, gini
-            ])
+            flag_icon, population, languages, gini])
     
+    print(new_list[0])
     return new_list

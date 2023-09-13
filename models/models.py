@@ -1,8 +1,9 @@
-from config.database import Base
+from config.database import Base, metadata, engine
 from sqlalchemy.types import Integer, String, Boolean, Float
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, mapper
 from sqlalchemy.sql.schema import Column , ForeignKey
-
+from schemas.country_schema import Country as CountrySchema
+import weakref
 
 class Country(Base):
     __tablename__ = "countries"
@@ -19,7 +20,9 @@ class Country(Base):
     population =  Column( Integer )
     gini = Column( Float )
     
-    users = relationship("User", back_populates= "countries")
+    def __weakref__ (self):
+        return weakref.ref(self)
+    #users = relationship("users", back_populates= "countries")
     
 class User(Base):  
     __tablename__ = "users"
@@ -33,8 +36,8 @@ class User(Base):
     register_time = Column(Float)
     role = Column(String)
     
-    publications = relationship("Publication", back_populates= "users")
-    comments = relationship("Comment", back_populates= "users")
+    publications = relationship("publications", back_populates= "users")
+    #comments = relationship("comments", back_populates= "users")
     
 
 class Publication(Base):
@@ -45,7 +48,7 @@ class Publication(Base):
     title = Column( String )
     content = Column( String ) 
     
-    user = relationship("User", back_populates= "publications")
+    #user = relationship("users", back_populates= "publications")
     comments = relationship("comments", back_populates= "publications")
 
 class Comment(Base):
@@ -56,7 +59,9 @@ class Comment(Base):
     publication_id = Column( Integer, ForeignKey("publications.publication_id") )
     content = Column(String)
     
-    #publication = relationship("Publication", back_populates= "comments")
+    #publication = relationship("publications", back_populates= "comments")
     
 
-    
+metadata.create_all(bind= engine)
+
+#mapper( CountrySchema ,Country)

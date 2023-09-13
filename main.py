@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from config.database import Session, engine, Base
 from typing import List
+import sqlalchemy
 
 
 from routers.auth_router import auth_router
@@ -22,7 +23,7 @@ app.include_router(health)
 app.include_router(user_router)
 app.include_router(publi_router)
 app.include_router(comments_router)
-app.include_router(plot_router)
+#app.include_router(plot_router)
 app.include_router(country_router)
 app.include_router(auth_router)
 
