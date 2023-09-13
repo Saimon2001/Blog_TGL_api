@@ -17,6 +17,8 @@ class Country(BaseModel):
     gini: float
 
     class Config:
+        orm_mode = True
+        
         schema_extra = {
             'example': {
                 'id': 'CO',
